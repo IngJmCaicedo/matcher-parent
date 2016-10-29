@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  matcher-discovery-server:
+    container_name: matcher-discovery-server
+    image: micromatcher/matcher-discovery-server
+    ports:
+      - "9090:9090"
+  matcher-config-server:
+    container_name: matcher-config-server
+    image: micromatcher/matcher-config-server
+    ports:
+      - "9091:9091"
+    links:
+      - matcher-discovery-server
